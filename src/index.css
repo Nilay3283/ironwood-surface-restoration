@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; background: #111111; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { @apply bg-obsidian text-ivory font-sans antialiased; font-weight: 300; }
+  section[id] { scroll-margin-top: 72px; }
+  ::selection { background: #B69A68; color: #111; }
+  :focus-visible { outline: 1px solid #B69A68; outline-offset: 3px; }
+}
+
+@layer components {
+  .eyebrow { @apply text-[11px] uppercase tracking-luxe text-gold font-medium; }
+  .h-display { @apply font-serif font-light uppercase leading-[0.95] tracking-[0.04em]; }
+  .h-section { @apply font-serif font-light uppercase tracking-[0.06em] leading-[1.02] text-[clamp(2.1rem,5vw,4.4rem)]; }
+  .btn-gold {
+    @apply relative inline-flex items-center justify-center gap-3 overflow-hidden border border-gold bg-gold px-7 py-4 text-[11px] font-semibold uppercase tracking-wide2 text-obsidian transition-colors duration-500;
+  }
+  .btn-gold:hover { @apply bg-transparent text-gold; }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 border border-ivory/30 px-7 py-4 text-[11px] font-medium uppercase tracking-wide2 text-ivory transition-colors duration-500;
+  }
+  .btn-ghost:hover { @apply border-gold text-gold; }
+  .gold-rule { @apply h-px w-16 bg-gradient-to-r from-gold to-transparent; }
+  .field { @apply w-full border-0 border-b border-ivory/20 bg-transparent px-0 py-3 text-[15px] text-ivory placeholder:text-ivory/30 focus:border-gold focus:outline-none focus:ring-0 transition-colors; }
+  .label { @apply block text-[10px] uppercase tracking-wide2 text-stone/80 mb-1; }
+}
+
+.grain::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.shimmer { background: linear-gradient(110deg, transparent 30%, rgba(214,190,140,.55) 50%, transparent 70%); background-size: 250% 100%; animation: shimmer 6s ease-in-out infinite; }
+@keyframes shimmer { 0% { background-position: 150% 0; } 100% { background-position: -100% 0; } }
+
+select.field option { background: #1b1b1b; color: #F4F0E8; }
